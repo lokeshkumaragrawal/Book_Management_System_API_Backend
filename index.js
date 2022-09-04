@@ -1,5 +1,8 @@
 const express = require("express");
 
+const usersRouter = require("./routes/users");
+const booksRouter = require("./routes/books");
+
 const app = express();
 
 const PORT = 2002;
@@ -11,6 +14,10 @@ app.get("/", (req, res) => {
         message: "Server is up and Running",
     });
 });
+
+app.use("/users", usersRouter);
+app.use("/books", booksRouter);
+
 app.get("*", (req, res) => {
     res.status(501).json({
         message: "This route does not exist",
