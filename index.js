@@ -1,9 +1,14 @@
 const express = require("express");
-
+const dotenv = require("dotenv");
+//for database connection
+const Dbconnection = require("./databaseConnection");
 const usersRouter = require("./routes/users");
 const booksRouter = require("./routes/books");
 
+dotenv.config();
 const app = express();
+
+Dbconnection();
 
 const PORT = 2002;
 
